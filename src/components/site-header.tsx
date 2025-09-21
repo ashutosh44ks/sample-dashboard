@@ -40,7 +40,7 @@ export function SiteHeader() {
           return { title: item.title, parentTitle: undefined };
         }
         if (item.items && item.items.length > 0) {
-          const found = findRouteItem(item.items, path);
+          const found = findRouteItem(item.items as SidebarRoutes, path);
           if (found) {
             return { title: found.title, parentTitle: item.title };
           }
