@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import WorldMapImg from "@/assets/world-map.png";
 
 const chartData = [
   { label: "New York", coords: [40.7128, -74.006], value: 72000 },
@@ -20,7 +21,7 @@ export function ChartWorldMap() {
         <CardDescription>January - June 2025</CardDescription>
       </CardHeader>
       <CardContent>
-        <img src="/world-map-placeholder.png" alt="World Map Placeholder" />
+        <img src={WorldMapImg} alt="World Map Placeholder" className="m-auto" />
         <div className="mt-4 space-y-2">
           {chartData.map((location) => (
             <div key={location.label}>
