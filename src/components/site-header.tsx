@@ -13,11 +13,14 @@ import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { sidebarData } from "@/lib/constants";
 import { useFavoritesData } from "@/hooks/useFavoritesData";
+import { useSecondarySidebar } from "@/hooks/useSecondarySidebar";
 import {
   IconHistory,
   IconNotification,
   IconStar,
   IconStarFilled,
+  IconLayoutSidebarRightExpand,
+  IconLayoutSidebarRightCollapse,
 } from "@tabler/icons-react";
 import GlobalInput from "./global-input";
 
@@ -29,6 +32,7 @@ interface RouteItem {
 export function SiteHeader() {
   const location = useLocation();
   const [routeItem, setRouteItem] = useState<RouteItem | null>(null);
+  const { isOpen, toggle } = useSecondarySidebar();
   useEffect(() => {
     function findRouteItem(
       data: SidebarRoutes,
@@ -95,7 +99,7 @@ export function SiteHeader() {
         </Breadcrumb>
         <div className="ml-auto flex items-center gap-2">
           <GlobalInput
-            className="hidden md:flex"
+            className="hidden md:flex max-w-48"
             inputProps={{
               placeholder: "Search",
             }}
@@ -117,7 +121,15 @@ export function SiteHeader() {
           >
             <IconNotification />
           </Button>
-          <SidebarTrigger title="Toggle Secondary Sidebar" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            title="Toggle Secondary Sidebar"
+            className="size-7"
+          >
+            {isOpen ? <IconLayoutSidebarRightCollapse /> : <IconLayoutSidebarRightExpand />}
+          </Button>
         </div>
       </div>
     </header>
