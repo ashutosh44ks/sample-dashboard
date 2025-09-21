@@ -11,16 +11,16 @@ const NavQuick = () => {
       <div className="space-x-4 mb-2">
         <button
           onClick={() => setTab("fav")}
-          className={cn("text-sm text-muted-foreground", {
-            "text-black dark:text-white": tab === "fav",
+          className={cn("text-sm text-custom-text-tetiary", {
+            "text-custom-text-secondary": tab === "fav",
           })}
         >
           Favorites
         </button>
         <button
           onClick={() => setTab("recent")}
-          className={cn("text-sm text-muted-foreground", {
-            "text-black dark:text-white": tab === "recent",
+          className={cn("text-sm text-custom-text-tetiary", {
+            "text-custom-text-secondary": tab === "recent",
           })}
         >
           Recent
@@ -50,7 +50,9 @@ const NavQuick = () => {
           </ul>
         ) : (
           <ul className="space-y-1">
-            <li className="text-sm text-muted-foreground">No recent items yet.</li>
+            <li className="text-sm text-muted-foreground">
+              No recent items yet.
+            </li>
           </ul>
         )}
       </div>

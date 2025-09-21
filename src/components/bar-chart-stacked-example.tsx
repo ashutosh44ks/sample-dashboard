@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function ChartBarStacked() {
   return (
-    <Card className="xl:w-4/10">
+    <Card className="xl:w-4/10 bg-custom-bg-secondary border-0">
       <CardHeader>
         <CardTitle>Projections vs Actuals</CardTitle>
         <CardDescription>January - June 2025</CardDescription>

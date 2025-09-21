@@ -62,7 +62,7 @@ const getColor = (label: string) => {
 
 export function ChartPieDonut() {
   return (
-    <Card className="xl:w-4/10">
+    <Card className="xl:w-4/10 bg-custom-bg-secondary border-0">
       <CardHeader className="items-center pb-0">
         <CardTitle>Total Sales</CardTitle>
         <CardDescription>January - June 2025</CardDescription>

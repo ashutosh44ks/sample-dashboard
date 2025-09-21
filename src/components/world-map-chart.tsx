@@ -14,7 +14,7 @@ const chartData = [
 ];
 export function ChartWorldMap() {
   return (
-    <Card className="xl:w-4/10">
+    <Card className="xl:w-4/10 bg-custom-bg-secondary border-0">
       <CardHeader>
         <CardTitle>Revenue by Location</CardTitle>
         <CardDescription>January - June 2025</CardDescription>

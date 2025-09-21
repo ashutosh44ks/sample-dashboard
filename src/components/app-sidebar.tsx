@@ -13,7 +13,7 @@ import NavQuick from "./nav-quick";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" {...props} className="text-custom-text-primary">
       <SidebarHeader>
         <div className="flex gap-2 items-center p-2 group-data-[collapsible=icon]:px-0">
           <Avatar className="h-8 w-8 rounded-full">

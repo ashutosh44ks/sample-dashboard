@@ -1,48 +1,40 @@
 import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
-  CardAction,
   CardDescription,
-  // CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export interface SectionCardProps {
   title: string;
   value: string;
   trend: "up" | "down";
   trendValue: string;
+  className?: string;
 }
 export function SectionCard({
   title,
   value,
   trend,
   trendValue,
+  className,
 }: SectionCardProps) {
   return (
-    <Card>
+    <Card className={cn(className, "border-0")}>
       <CardHeader>
-        <CardDescription>{title}</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardDescription className="text-custom-text-primary font-medium">
+          {title}
+        </CardDescription>
+        <CardTitle className="text-custom-text-primary text-3xl font-semibold tabular-nums @[250px]/card:text-3xl flex justify-between items-center">
           {value}
-        </CardTitle>
-        <CardAction>
-          <Badge variant="outline">
+          <span className="inline-flex items-center gap-1 text-xs font-light tabular-nums text-custom-text-primary">
             {trend === "down" ? <IconTrendingDown /> : <IconTrendingUp />}
             {trendValue}
-          </Badge>
-        </CardAction>
+          </span>
+        </CardTitle>
       </CardHeader>
-      {/* <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Trending up this month <IconTrendingUp className="size-4" />
-          </div>
-          <div className="text-muted-foreground">
-            Visitors for the last 6 months
-          </div>
-        </CardFooter> */}
     </Card>
   );
 }

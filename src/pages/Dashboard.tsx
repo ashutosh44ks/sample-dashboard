@@ -37,9 +37,23 @@ const Dashboard = () => {
       <h2 className="font-semibold">eCommerce</h2>
       <div className="flex gap-4 lg:flex-row flex-col">
         <div className="flex-1 grid grid-cols-1 gap-4 xl:grid-cols-2 2xl:grid-cols-4">
-          {SectionCardsData.map((card) => (
-            <SectionCard key={card.title} {...card} />
-          ))}
+          {SectionCardsData.map((card, index) => {
+            const theme = (index: number) => {
+              switch (index) {
+                case 0:
+                  return "bg-custom-bg-primary";
+                case 1:
+                  return "bg-custom-bg-secondary";
+                case 2:
+                  return "bg-custom-bg-secondary";
+                case 3:
+                  return "bg-custom-bg-tertiary";
+                default:
+                  return "bg-custom-bg-secondary";
+              }
+            }
+            return <SectionCard key={card.title} {...card} className={theme(index)} />;
+          })}
         </div>
         <ChartBarStacked />
       </div>

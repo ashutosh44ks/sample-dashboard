@@ -104,7 +104,7 @@ const OrderList = () => {
   return (
     <div className="flex flex-col gap-4 p-4">
       <h2 className="font-semibold">Order List</h2>
-      <div className="bg-blue-100/50 p-3 py-1 rounded flex items-center justify-between">
+      <div className="bg-custom-bg-secondary p-3 py-1 rounded flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" title="Add a new order">
             <IconPlus size={16} />

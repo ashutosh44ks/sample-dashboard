@@ -1,5 +1,4 @@
 import { ChevronRight, type LucideIcon } from "lucide-react";
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,6 +16,8 @@ import {
 } from "@/components/ui/sidebar";
 import type { TablerIcon } from "@tabler/icons-react";
 import { Link } from "react-router";
+import { useLocation } from "react-router";
+import { cn } from "@/lib/utils";
 
 export function NavMain({
   items,
@@ -26,7 +27,6 @@ export function NavMain({
     title: string;
     url: string;
     icon?: LucideIcon | null | TablerIcon;
-    isActive?: boolean;
     items?: {
       title: string;
       url: string;
@@ -34,18 +34,26 @@ export function NavMain({
   }[];
   groupLabel: string;
 }) {
+  const location = useLocation();
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>{groupLabel}</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-custom-text-secondary">
+        {groupLabel}
+      </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
+          // Check if the current item's URL matches the current location
+          const isActive = location.pathname === item.url;
           if (item.items && item.items.length > 0) {
             return (
               <Collapsible
                 key={item.title}
                 asChild
-                defaultOpen={item.isActive}
-                className="group/collapsible"
+                defaultOpen={isActive}
+                className={cn(
+                  "group/collapsible",
+                  isActive && "bg-custom-bg-highlight"
+                )}
               >
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
@@ -74,7 +82,11 @@ export function NavMain({
           }
           return (
             <Link to={item.url}>
-              <SidebarMenuButton tooltip={item.title}>
+              <SidebarMenuButton
+                tooltip={item.title}
+                isActive={isActive}
+                className={cn(isActive && "bg-custom-bg-highlight")}
+              >
                 {item.icon && <item.icon />}
                 {item.title}
               </SidebarMenuButton>

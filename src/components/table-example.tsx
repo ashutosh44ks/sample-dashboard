@@ -66,24 +66,24 @@ export const columns = [
 
 export function TopSellingProducts() {
   return (
-    <Card className="flex-1">
+    <Card className="flex-1 bg-custom-bg-secondary border-0">
       <CardHeader>
         <CardTitle>Top Selling Products</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="rounded-md border">
+        <div>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Quantity</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="text-custom-text-secondary">Name</TableHead>
+                <TableHead className="text-custom-text-secondary">Price</TableHead>
+                <TableHead className="text-custom-text-secondary">Quantity</TableHead>
+                <TableHead className="text-custom-text-secondary">Amount</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {data.map((row, index) => (
-                <TableRow key={index}>
+                <TableRow key={index} className="border-0">
                   <TableCell>{row.name}</TableCell>
                   <TableCell>${row.price.toFixed(2)}</TableCell>
                   <TableCell>{row.quantity}</TableCell>

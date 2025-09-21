@@ -32,13 +32,13 @@ const chartConfig = {
   },
   projections: {
     label: "Projections",
-    color: "var(--chart-2)",
+    color: "var(--chart-3)",
   },
 } satisfies ChartConfig;
 
 export function ChartLineMultiple() {
   return (
-    <Card className="flex-1">
+    <Card className="flex-1 bg-custom-bg-secondary border-0">
       <CardHeader>
         <CardTitle className="flex items-center">
           Revenue{" "}
@@ -47,8 +47,8 @@ export function ChartLineMultiple() {
             className="mx-2 data-[orientation=vertical]:h-4"
           />
           <ul className="ml-6 list-disc flex gap-8 font-normal text-sm">
-            <li>Current Week $58,211 </li>
-            <li>Previous Week $68,768</li>
+            <li>Current Week <span className="font-medium">$58,211</span></li>
+            <li>Previous Week <span className="font-medium">$68,768</span></li>
           </ul>
         </CardTitle>
         <CardDescription>January - June 2024</CardDescription>
